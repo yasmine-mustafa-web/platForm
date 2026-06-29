@@ -258,6 +258,6 @@ app.get('/courses/3', isLoggedIn, async (req, res) => {
     }
 });
 
-app.listen(PROCESS.ENV.port, () => {
+app.listen(process.env.PORT, () => {
     console.log('listen on port')
 })
