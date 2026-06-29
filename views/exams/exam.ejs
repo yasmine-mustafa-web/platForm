@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate') %>
+
+
+<!-- <div class="mb-5 container">
+
+</div> -->
+
+
+
+
+<div class="container my-5" style="max-width: 800px;">
+    <div class="p-5 mb-4 bg-light rounded-3 border-start border-primary border-5 shadow-sm">
+        <h1 class="display-5 fw-bold text-dark"><%= exam.title %></h1>
+        <p class="col-md-8 fs-5 text-muted"><%= exam.description %></p>
+        <span class="badge bg-secondary fs-6">Stage: Senior <%= exam.stage %></span>
+    </div>
+
+    <form action="/exams/<%= exam._id %>/submit" method="POST">
+        
+        <% exam.questions.forEach((question, index) => { %>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-dark text-white fw-semibold">
+                    Question <%= index + 1 %> <span class="float-end text-info">(<%= question.points %> Pts)</span>
+                </div>
+                <div class="card-body">
+                    <p class="fs-5 fw-bold"><%= question.questionText %></p>
+                    
+                    <div class="options-container mt-3">
+                        <% question.options.forEach((option, optIndex) => { %>
+                            <div class="form-check p-2 my-2 border rounded hover-shadow" style="background-color: #fafafa;">
+                                <input 
+                                    class="form-check-input ms-2" 
+                                    type="radio" 
+                                    name="answers[<%= index %>]"
+                                    id="q_<%= index %>_opt_<%= optIndex %>" 
+                                    value="<%= option %>" 
+                                    required
+                                >
+                                <label class="form-check-label ms-2 text-dark w-100" for="q_<%= index %>_opt_<%= optIndex %>">
+                                    <%= option %>
+                                </label>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+
+        <div class="d-grid gap-2 my-5">
+   <button type="submit" class="btn btn-primary btn-lg shadow">Submit Exam</button>
+        </div>
+    </form>
+</div>

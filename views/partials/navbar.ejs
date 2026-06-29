@@ -1,0 +1,37 @@
+<nav style="font-family: 'Montserrat' , sans-serif;" class="navbar navbar-custom navbar-expand-lg text-primary py-0 my-0 fixed-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    
+    <a class="navbar-brand" href="/">
+      <img style="width: 110px; height: 72px; margin: 0px 8px;" src="/assets/Untitled.png" alt="Logo">
+    </a>
+
+    <div class="d-flex align-items-center ms-auto">
+        <% if(!currentUser) { %>
+          <div class="d-flex gap-2">
+            <a class="nav-link p-0" href="/login"> <button class="btn btn-outline-primary btn-sm px-3">Login</button></a>
+            <a class="nav-link p-0" href="/register"> <button class="btn btn-primary text-white btn-sm px-3">Register</button> </a>
+          </div>
+        <% } else { %>
+          
+          <div class="dropdown position-relative">
+            <button class="btn btn-link text-dark dropdown-toggle p-0 border-0" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle fs-2 text-primary"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end mt-2 shadow p-3" style=" min-width: 240px; background-color: rgb(208, 208, 208);" >
+              <li class="dropdown-item-text text-dark pb-2" style="font-size: x-large; font-family: 'Cinzel' , sans-serif;">
+                Welcome, <%= currentUser && currentUser.firstname ? currentUser.firstname : 'Student' %>
+              </li>
+              <li><hr class="dropdown-divider "></li>
+              <li><a class="dropdown-item py-3 text-dark" href="#" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)">Something else here</a></li>
+              <li><a class="dropdown-item py-3 text-dark" href="#" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)">Something else here</a></li>
+              <li><a class="dropdown-item py-3 text-dark" href="/examResults" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)">Exam Marks</a></li>
+              <li><a class="dropdown-item py-3 text-dark" href="#" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)">Something else here</a></li>
+              <li><a href="/logout" class="dropdown-item text-danger pt-3">Logout</a></li>
+            </ul>
+          </div>
+
+        <% } %>
+    </div>
+
+  </div>
+</nav>

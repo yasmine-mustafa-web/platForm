@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate') %>
+<div style="margin: 80px;" class="bg-white text-center align-items-center">
+<h2 style="font-family: 'Cinzel' , serif;">Pay with Vodafone Cash</h2>
+<p class="fs-4" style="font-family: 'Quicksand' , sans-serif">Transfer to: <span class="text-primary">01015011656</span> </p>
+<div class="mb-3">
+    <form action="/subscribe" method="post" enctype="multipart/form-data>
+          <input style="border: 0.5px solid rgba(2, 2, 173, 0.575);" class="form-control" type="file" id="formFile" required multiple>
+    </form>
+</div>
+<a href="/courses<%=currentUser.stage%>"><button class="btn btn-primary">Submit</button></a>
+</div>
