@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 const passport = require('passport');
 const users = require('../controllers/users');
-const { isLoggedIn } = require('../middlewares/middleware');
+const { isLoggedIn } = require('../middlewares/routesMiddleware');
 
 router.route('/register')
     .get(users.renderRegisterForm)

@@ -8,7 +8,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const localPassport = require('passport-local');
-const { isLoggedIn } = require('./middlewares/middleware');
+const { isLoggedIn } = require('./middlewares/routesMiddleware');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 main().catch(err => {
